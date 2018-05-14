@@ -2,6 +2,9 @@
 #include <Windows.h>
 #include <stdio.h>
 #include <cmath>
+#include <iostream>
+#include <TlHelp32.h>
+#include <comdef.h>
 DWORD WINAPI ThreadInject(PVOID64);
 
 int main(int argc ,char ** argv)
@@ -138,6 +141,48 @@ DWORD WINAPI ThreadInject(PVOID64 Param)
 	return 0;
 }
 
+DWORD GetProcID(std::string ProcName)
+{
+	HANDLE hProcessSnap;
+	PROCESSENTRY32 pe32;
+	hProcessSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+	pe32.dwSize = sizeof(PROCESSENTRY32);
+	do {
+		//translate wchar to char
+		_bstr_t b(pe32.szExeFile);
+		char * processName = b;
+		if (strcmp(processName, ProcName.c_str()) == 0)
+		{
+			DWORD ProcId = pe32.th32ProcessID;
+			CloseHandle(hProcessSnap);
+			return ProcId;
+		}
+	} while (Process32Next(hProcessSnap, &pe32));
+
+	CloseHandle(hProcessSnap);
+	return 0;
+}
+
+BOOL ProcessExists(std::string process)
+{
+	HANDLE hProcessSnap;
+	PROCESSENTRY32 pe32;
+	hProcessSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+	pe32.dwSize = sizeof(PROCESSENTRY32);
+	do {
+		//translate wchar to char
+		_bstr_t b(pe32.szExeFile);
+		char * processName = b;
+		if (strcmp(processName, process.c_str()) == 0)
+		{
+			CloseHandle(hProcessSnap);
+			return true;
+		}
+	} while (Process32Next(hProcessSnap, &pe32));
+
+	CloseHandle(hProcessSnap);
+	return false;
+}
 //for 32 bit
 //#include <stdio.h>
 //#include <Windows.h>
