@@ -137,7 +137,7 @@ int main(int argc ,char ** argv)
 
 DWORD WINAPI ThreadInject(PVOID64 Param)
 {
-	MessageBox(NULL, L"You are been Hacked by Armadillo Hackers Gruop!", L"Alert!!", MB_ICONINFORMATION);
+	MessageBox(NULL, L"You are been Hacked by Hackers Gruop!", L"Alert!!", MB_ICONINFORMATION);
 	return 0;
 }
 
@@ -183,6 +183,7 @@ BOOL ProcessExists(std::string process)
 	CloseHandle(hProcessSnap);
 	return false;
 }
+
 //for 32 bit
 //#include <stdio.h>
 //#include <Windows.h>
