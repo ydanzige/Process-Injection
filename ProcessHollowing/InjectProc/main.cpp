@@ -3,7 +3,8 @@
 #include <iostream>
 #include <filesystem>
 #include <atlconv.h>
-
+//the code work with this parameters <proc_rpl "C:\Windows\System32\notepad.exe"  "C:\Windows\System32\calc.exe"  >
+//need to research why didn't work of other things
 //This code is from:
 //https://github.com/secrary/InjectProc.git
 
