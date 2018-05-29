@@ -13,6 +13,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ThreadExecutionHijacking", 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HookInjectionViaSetWindowsHookEx", "HookInjectionViaSetWindowsHookEx\HookInjectionViaSetWindowsHookEx.vcxproj", "{0BA714D3-25D8-48C7-B694-50E231166EEA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RegistersInjections", "RegistersInjections\RegistersInjections.vcxproj", "{0647AFF2-03B1-4F39-96A0-FE2E85479804}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IFEO_hacked", "IFEO_hacked\IFEO_hacked.vcxproj", "{DDA0E04A-5591-4564-B6C6-F1914D438B9C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -61,6 +65,22 @@ Global
 		{0BA714D3-25D8-48C7-B694-50E231166EEA}.Release|x64.Build.0 = Release|x64
 		{0BA714D3-25D8-48C7-B694-50E231166EEA}.Release|x86.ActiveCfg = Release|Win32
 		{0BA714D3-25D8-48C7-B694-50E231166EEA}.Release|x86.Build.0 = Release|Win32
+		{0647AFF2-03B1-4F39-96A0-FE2E85479804}.Debug|x64.ActiveCfg = Debug|x64
+		{0647AFF2-03B1-4F39-96A0-FE2E85479804}.Debug|x64.Build.0 = Debug|x64
+		{0647AFF2-03B1-4F39-96A0-FE2E85479804}.Debug|x86.ActiveCfg = Debug|Win32
+		{0647AFF2-03B1-4F39-96A0-FE2E85479804}.Debug|x86.Build.0 = Debug|Win32
+		{0647AFF2-03B1-4F39-96A0-FE2E85479804}.Release|x64.ActiveCfg = Release|x64
+		{0647AFF2-03B1-4F39-96A0-FE2E85479804}.Release|x64.Build.0 = Release|x64
+		{0647AFF2-03B1-4F39-96A0-FE2E85479804}.Release|x86.ActiveCfg = Release|Win32
+		{0647AFF2-03B1-4F39-96A0-FE2E85479804}.Release|x86.Build.0 = Release|Win32
+		{DDA0E04A-5591-4564-B6C6-F1914D438B9C}.Debug|x64.ActiveCfg = Debug|x64
+		{DDA0E04A-5591-4564-B6C6-F1914D438B9C}.Debug|x64.Build.0 = Debug|x64
+		{DDA0E04A-5591-4564-B6C6-F1914D438B9C}.Debug|x86.ActiveCfg = Debug|Win32
+		{DDA0E04A-5591-4564-B6C6-F1914D438B9C}.Debug|x86.Build.0 = Debug|Win32
+		{DDA0E04A-5591-4564-B6C6-F1914D438B9C}.Release|x64.ActiveCfg = Release|x64
+		{DDA0E04A-5591-4564-B6C6-F1914D438B9C}.Release|x64.Build.0 = Release|x64
+		{DDA0E04A-5591-4564-B6C6-F1914D438B9C}.Release|x86.ActiveCfg = Release|Win32
+		{DDA0E04A-5591-4564-B6C6-F1914D438B9C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
